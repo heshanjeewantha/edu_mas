@@ -1,0 +1,8 @@
+crewai>=0.28.0
+crewai-tools
+langchain-ollama
+langchain-community
+wikipedia-api
+pytest
+flask>=3.0.0
+flask-cors>=4.0.0

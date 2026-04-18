@@ -1,0 +1,48 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# ── Project outputs (generated at runtime) ────────────────────────────────────
+output/
+logs/
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ── OS & editor files ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Pytest / coverage ─────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/

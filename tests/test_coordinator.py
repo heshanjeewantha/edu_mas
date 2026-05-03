@@ -1,9 +1,6 @@
 # tests/test_coordinator.py
 """
 Tests for the Coordinator agent's tool: WikipediaTool (Student A).
-
-Tests cover: valid topic fetch, unknown topic handling, empty input,
-special characters, and LLM-as-a-Judge quality check on the summary.
 """
 import pytest
 import sys
@@ -44,9 +41,7 @@ class TestWikipediaToolPositive:
         r2 = wiki_tool._run(topic="Mitosis")
         assert r1 != r2
 
-
 class TestWikipediaToolNegative:
-    """Error-handling tests for invalid or missing topics."""
 
     def test_nonexistent_topic_returns_error(self, wiki_tool):
         result = wiki_tool._run(topic="XYZ_NONSENSE_TOPIC_12345_FAKE")
@@ -66,10 +61,6 @@ class TestWikipediaToolNegative:
 
 
 class TestWikipediaToolQuality:
-    """
-    LLM-as-a-Judge style quality checks.
-    Validates that the summary is factually grounded and readable.
-    """
 
     def test_summary_is_full_sentences(self, wiki_tool):
         """Summary must contain at least one full sentence (ends with period)."""
@@ -91,10 +82,7 @@ class TestWikipediaToolQuality:
         assert result.strip() != ""
 
     def test_coordinator_output_suitable_for_quiz_generation(self, wiki_tool):
-        """
-        Quality gate: summary must be long enough to generate 5 MCQ questions.
-        A summary shorter than 100 chars is too thin to quiz on.
-        """
+        
         result = wiki_tool._run(topic="Photosynthesis")
         if not result.startswith("ERROR"):
             assert len(result) >= 100, "Summary too short to generate meaningful questions"

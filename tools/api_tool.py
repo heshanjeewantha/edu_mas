@@ -2,8 +2,7 @@
 """
 Wikipedia Topic Fetcher Tool — Student A's custom tool.
 
-Calls the free Wikipedia public API to retrieve a factual summary
-of any educational topic. Used by the Coordinator agent.
+Calls the free Wikipedia public API
 """
 import wikipediaapi
 from crewai.tools import BaseTool
@@ -18,7 +17,6 @@ class WikiInputSchema(BaseModel):
         ...,
         description="The educational topic to look up on Wikipedia (e.g. 'Photosynthesis')"
     )
-
 
 class WikipediaTool(BaseTool):
     """
